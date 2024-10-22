@@ -68,3 +68,16 @@ for crypt and:
              �`
 
 for flag.txt.undead
+
+This flag is likely enrypted using chacha20 encryption. To dewcrypt we need a 32 character/byte secret key, and 12 character/byte nonce.
+
+https://www.devglan.com/online-tools/chacha20-encryption-decryption
+
+Tried to decrypt flag.txt.undead with secret key: BRAAAAAAAAAAAAAAAAAAAAAAAAAINS!!, and nonce: undeadzombie
+
+chacha20 decrypted output: ��-��
+
+incorrect flag
+
+
+
