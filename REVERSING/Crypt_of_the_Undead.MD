@@ -69,7 +69,7 @@ for crypt and:
 
 for flag.txt.undead
 
-This flag is likely enrypted using chacha20 encryption. To dewcrypt we need a 32 character/byte secret key, and 12 character/byte nonce.
+This flag is likely enrypted using chacha20 encryption. To decrypt we need a 32 character/byte secret key, and 12 character/byte nonce.
 
 https://www.devglan.com/online-tools/chacha20-encryption-decryption
 
@@ -79,5 +79,34 @@ chacha20 decrypted output: ��-��
 
 incorrect flag
 
+Kinda cheated on his one by reading the writeup lol. I got realkly close though tbf.
 
+We're meant to inspect `crypt` by decompiling it. in doing so we find that our key is `BRAAAAAAAAAAAAAAAAAAAAAAAAAINS!!` and the nonce is set to `0`.
 
+We also find that the program checks the file type/extension for `.undead`. if we remove this from the encrypted `flag.txt.undead` and use the `crypt` program on the new `flag.txt` file we should get the flag. 
+
+I'm not sure how to use the `crypt` program is the only problem still.
+
+EURYKA!! I can use the `crypt` binary after changing my current directory into `~/Documents/rev_crypt_of_the_undead` and using the command 
+
+`./crypt file_to_encrypt`
+
+replacing `file_to_encrypt` with `flag.txt.undead` outputs:
+
+`error: that which is undead may not be encrypted`
+
+So we need to change our `flag.txt.undead` file name to `flag.txt`
+
+Now when we try and use
+
+`./crypt flag.txt`
+
+we get the output:
+
+`successfully zombified your file`
+
+And We're given a new `flag.txt.undead` file that contains our plaintext flag!
+
+`HTB{und01ng_th3_curs3_0f_und34th}`
+
+EZPZ
