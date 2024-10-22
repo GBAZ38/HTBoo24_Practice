@@ -27,3 +27,6 @@ Unsure about what the flag is. Tried different legible strings from the output l
 
 Trying to view the file with a text editor gets us an encoding error? The file contains unknown characters and warns about editing the file and potentially corrupting it.
 
+# SOLUTION:
+
+Had it right the first time. The flag was `HTB{br34k1n9_d0wn_th3_sysc4ll5}`.
